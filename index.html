@@ -32,6 +32,15 @@
             document.getElementById("property-phone").textContent = property.phone || "N/A";
             document.getElementById("property-email").textContent = property.email || "N/A";
         }
-    </script>
-</body>
-</html>
+        window.addEventListener("message", function(event) {
+            if (event.data && event.data.property) {
+                updateSidebar(event.data.property);
+            }
+            var sidebarIframe = document.querySelector("iframe");
+            if (sidebarIframe) {
+                sidebarIframe.contentWindow.postMessage({ property }, "*");
+            }
+        });
+        </script>
+    </body>
+    </html>
