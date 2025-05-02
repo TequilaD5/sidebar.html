@@ -36,10 +36,6 @@
             if (event.data && event.data.property) {
                 updateSidebar(event.data.property);
             }
-            var sidebarIframe = document.querySelector("iframe");
-            if (sidebarIframe) {
-                sidebarIframe.contentWindow.postMessage({ property }, "*");
-            }
         });
         </script>
     </body>
